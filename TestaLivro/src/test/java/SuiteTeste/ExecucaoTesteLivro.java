@@ -1,6 +1,6 @@
 /**
  * Suite de teste para o pacote web Livro
- * @author Larissa Silva <larissa.natali00@gmail.com>
+ * @author Luiz Victor
  */
 package SuiteTeste;
 import org.junit.Test;
