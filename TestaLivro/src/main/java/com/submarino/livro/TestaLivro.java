@@ -1,6 +1,6 @@
 /**
  * Codigo 
- * @author Larissa Silva <larissa.natali00@gmail.com>
+ * @author Luiz Victor
  */
 package com.submarino.livro;
 
@@ -41,16 +41,16 @@ public class TestaLivro {
 	wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Livros")));
 	driver.findElement(By.id("h_search-input")).sendKeys("Livros");
 	driver.findElement(By.id("h_search-btn")).click();
-	wait.until(ExpectedConditions.presenceOfElementLocated(By.name("Livro - O Milagre da Manh„")));
+	wait.until(ExpectedConditions.presenceOfElementLocated(By.name("Livro - O Poder dos Quietos")));
 	//Seleciona primeiro livro 
-	driver.findElement(By.xpath("//*[@id=\"content-middle\"]/div[5]/div/div/div/div[1]/div[2]/div/div[2]/a/section/div[2]/div[1]")).click();
-	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"info-section\"]/div[2]/section/div/div[3]/table/tbody/tr[13]/td[2]/span")));
+	driver.findElement(By.getText("Livro - O Poder dos Quietos")).click();
+	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("Susan Cain")));
 	// Verifica o nome do autor 
-	WebElement autorsub = driver.findElement(By.xpath("//*[@id=\"info-section\"]/div[2]/section/div/div[3]/table/tbody/tr[13]/td[2]/span"));
+	WebElement autorsub = driver.findElement(By.xpath("//*[@id="content"]/div/div/div[2]/div/section/div/div[2]/div[2]/section/div[4]/div[1]/div/div/a/span"));
 	nomeautorsub = autorsub.getText();
 	System.out.println("Site Submarino - Nome do Autor: " + nomeautorsub);
-	//Salva o n˙mero da ISBN
-	WebElement ISBN = driver.findElement(By.xpath("//*[@id=\"info-section\"]/div[2]/section/div/div[3]/table/tbody/tr[12]/td[2]/span"));
+	//Salva o n√∫mero da ISBN
+	WebElement ISBN = driver.findElement(By.xpath("//*[@id="info-section"]/div[2]/section/div[2]/section/table/tbody/tr[8]/td[2]/span"));
 	numISBNsub = ISBN.getText();
 	System.out.println("Site Submarino - Numero ISBN: " + numISBNsub);
 		
@@ -68,7 +68,7 @@ public class TestaLivro {
 	WebElement autoran = driver.findElement(By.xpath("//*[@id=\"info-section\"]/div[2]/section/div/div[3]/table/tbody/tr[13]/td[2]/span"));
 	String nomeautoran = autoran.getText();
 	Assert.assertEquals(nomeautorsub, nomeautoran);
-	System.out.println("Site Americanas - Nome do Autor est· correto: " + nomeautoran);
+	System.out.println("Site Americanas - Nome do Autor est√° correto: " + nomeautoran);
 	//Fecha Navegador
 	}
 	
@@ -84,7 +84,7 @@ public class TestaLivro {
 	WebElement nomeautoraz = driver.findElement(By.xpath("//*[@id=\"bylineInfo\"]/span[1]/a"));
 	String nomeautoramazon = nomeautoraz.getText();
 	Assert.assertEquals(nomeautorsub, nomeautoramazon);
-	System.out.println("Site Amazon - Nome do Autor est· correto: " + nomeautoramazon);
+	System.out.println("Site Amazon - Nome do Autor est√° correto: " + nomeautoramazon);
 	
 	driver.quit();
 	
